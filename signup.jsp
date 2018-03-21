@@ -90,10 +90,10 @@ if(action.equals("login")){
         Statement st=con.createStatement();
         
         ResultSet rs = st.executeQuery("SELECT * FROM `user_data` WHERE user_name = '"+user+"' AND password = '"+pass+"'");
-        
+        session.setAttribute(user, "username");
         if(rs.next())
         {
-            session.setAttribute(user, "username");
+            
             response.sendRedirect("contect.jsp");
             
         }
